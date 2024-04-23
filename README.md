@@ -1,5 +1,5 @@
 # balancer
-A distributed load balancer
+A distributed load balancer.
 
 ## Installation
 
