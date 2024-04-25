@@ -1,6 +1,10 @@
 # balancer
 A distributed load balancer.
 
+## Prerequisites
+
+- [Docker Desktop](https://www.docker.com/products/docker-desktop)
+
 ## Installation
 
 - Install the needed packages:
@@ -15,5 +19,10 @@ A distributed load balancer.
 
 - Run the Docker container:
 ```sh
- docker run -d -p 5000:5000 -e SERVER_ID=3 balancer
+ docker run --name=balancer --rm --detach balancer
+```
+
+- Stop the Docker container:
+```sh
+ docker stop balancer
 ```
