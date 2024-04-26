@@ -10,7 +10,13 @@ chm = ConsistentHashMap(3, 512, 9)
 
 @app.route('/', methods=['GET'])
 def index():
-    return 'Welcome to the home page!', 200
+    return '''
+    <h1>Welcome to the home page!</h1>
+    <p>
+        <a href="/home"><button>Home Endpoint</button></a>
+        <a href="/heartbeat"><button>Heartbeat Endpoint</button></a>
+    </p>
+    ''', 200
 
 
 @app.route('/home', methods=['GET'])
