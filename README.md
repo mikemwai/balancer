@@ -26,6 +26,7 @@
  pip install -r requirements.txt 
 ```
 
+## Usage
 - Build the Docker image:
 
 ```sh
@@ -43,8 +44,6 @@
 ```sh
  docker stop balancer
 ```
-
-## Usage
 
 - Open your browser and go to:
    - http://127.0.0.1:5000/ to navigate to the `home` page.
