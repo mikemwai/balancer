@@ -30,6 +30,6 @@ A distributed load balancer.
 ## Usage
 
 - Open your browser and go to:
-   - http://127.0.0.1:5000/ to navigate to the home page.
-   - http://127.0.0.1:5000/home to navigate to the /home endpoint.
-   - http://127.0.0.1:5000/heartbeat to navigate to the /heartbeat endpoint.
+   - http://127.0.0.1:5000/ to navigate to the `home` page.
+   - http://127.0.0.1:5000/home to navigate to the `/home` endpoint.
+   - http://127.0.0.1:5000/heartbeat to navigate to the `/heartbeat` endpoint.
