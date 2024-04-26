@@ -16,17 +16,22 @@ class ConsistentHashMap:
         self.sorted_keys.sort()
 
     def request_hash(self, i):
-        return (i + 2 * i + 17) % self.num_slots
+        return hash(str(i)) % self.num_slots
 
     def virtual_server_hash(self, i, j):
-        return (i + j + 2 * j + 25) % self.num_slots
+        return hash(str(i) + str(j)) % self.num_slots
 
     def get_server(self, request):
         request_hash = self.request_hash(request)
         index = bisect.bisect(self.sorted_keys, request_hash)
         if index == len(self.sorted_keys):
             index = 0
-        return self.hash_map[self.sorted_keys[index]]
+        server = self.hash_map[self.sorted_keys[index]]
+
+        # Log the request and the server it's mapped to
+        print(f'Request: {request}, Server: {server}')
+
+        return server
 
 
 # Initialize the consistent hash map with 3 servers, 512 slots, and 9 virtual servers per server

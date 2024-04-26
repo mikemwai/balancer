@@ -16,8 +16,9 @@ def index():
 @app.route('/home', methods=['GET'])
 def home():
     # Use the get_server method to get the server for a request
-    server = chm.get_server(123)
-    return jsonify(message=f'Hello from Server: {server}', status='successful'), 200
+    servers = [chm.get_server(i) for i in range(1000)]
+    server_counts = {server: servers.count(server) for server in set(servers)}
+    return jsonify(server_counts=server_counts, status='successful'), 200
 
 
 @app.route('/heartbeat', methods=['GET'])
