@@ -7,7 +7,7 @@
 
 - [Python 3.8](https://www.python.org/downloads/release/python-380/) : Programming language.
 - [Docker Desktop](https://www.docker.com/products/docker-desktop) : Running the application in a container.
-- [Postman](https://www.postman.com/downloads/) : Testing the API endpoints.
+- [Postman](https://www.postman.com/downloads/) : Testing the HTTP API endpoints.
 
 ## Installation
 - Create a virtual environment:
