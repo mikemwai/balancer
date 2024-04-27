@@ -1,6 +1,5 @@
 from flask import Flask, jsonify
-from consistent_hash_map import ConsistentHashMap
-import os
+from load_balancer.consistent_hash_map import ConsistentHashMap
 
 app = Flask(__name__)
 
@@ -29,6 +28,7 @@ def home():
 
 @app.route('/heartbeat', methods=['GET'])
 def heartbeat():
+    # Sends an empty response with a valid response code
     return '', 200
 
 
