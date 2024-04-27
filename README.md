@@ -1,11 +1,13 @@
 # Implementing a Customizable Load Balancer
+
+## Overview
 ![Overview](./overview.png)
 
 ## Prerequisites
 
 - [Python 3.8](https://www.python.org/downloads/release/python-380/) : Programming language.
 - [Docker Desktop](https://www.docker.com/products/docker-desktop) : Running the application in a container.
-- [Postman](https://www.postman.com/downloads/) : Testing the API endpoints.
+- [Postman](https://www.postman.com/downloads/) : Testing the HTTP API endpoints.
 
 ## Installation
 - Create a virtual environment:
@@ -49,3 +51,5 @@
    - http://127.0.0.1:5000/ to navigate to the `home` page.
    - http://127.0.0.1:5000/home to navigate to the `/home` endpoint.
    - http://127.0.0.1:5000/heartbeat to navigate to the `/heartbeat` endpoint.
+
+- Test the endpoints using Postman.
