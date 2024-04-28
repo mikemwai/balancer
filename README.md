@@ -30,7 +30,7 @@
 
 ## Usage
 
-### Server
+### 1) Server
 - Build the server Docker image:
 
 ```sh
@@ -53,7 +53,7 @@
    - http://127.0.0.1:5000/home to navigate to the `/home` endpoint.
    - http://127.0.0.1:5000/heartbeat to navigate to the `/heartbeat` endpoint.
 
-### Load Balancer
+### 2) Load Balancer
 - Build the load balancer Docker image:
 
 ```sh
