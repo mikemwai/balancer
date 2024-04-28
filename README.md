@@ -22,12 +22,6 @@
  source venv/bin/activate
 ```
 
-- Install the needed packages:
-
-```sh
- pip install -r requirements.txt 
-```
-
 ## Usage
 
 ### 1) Server
