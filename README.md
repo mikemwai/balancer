@@ -26,7 +26,7 @@
 
 ### 1) Server
 - Build the server Docker image:
-- Navigate to the server directory (where dockerfile is located) and run the following terminal commands.
+- Navigate to the server directory and run the following terminal commands.
 
 ```sh
  docker build -t server .  
@@ -50,6 +50,7 @@
 
 ### 2) Load Balancer
 - Build the load balancer Docker image:
+- Open new terminal and navigate to load_balancer directory
 
 ```sh
  docker build -t load_balancer .  
@@ -58,7 +59,7 @@
 - Run the load balancer Docker container:
 
 ```sh
- docker run --name=server --rm --detach -p 5001:5001 load_balancer 
+ docker run --name=load_balancer --rm --detach -p 5001:5001 load_balancer 
 ```
 
 - Stop the load balancer Docker container:
