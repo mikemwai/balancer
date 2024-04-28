@@ -26,6 +26,7 @@
 
 ### 1) Server
 - Build the server Docker image:
+- Navigate to the server directory (where dockerfile is located) and run the following terminal commands.
 
 ```sh
  docker build -t server .  
