@@ -1,5 +1,5 @@
 from flask import Flask, jsonify, request
-from load_balancer.consistent_hash_map import ConsistentHashMap
+from consistent_hash_map import ConsistentHashMap
 import random
 import string
 
@@ -12,6 +12,7 @@ chm = ConsistentHashMap(3, 512, 9)
 server_replicas = ["Server 1", "Server 2", "Server 3"]
 
 
+# HTTP endpoints
 @app.route('/rep', methods=['GET'])
 def get_replicas():
     return jsonify(message={"N": len(server_replicas), "replicas": server_replicas}, status="successful"), 200
@@ -63,30 +64,5 @@ def route_request(path):
         return jsonify(message=f"<Error> ’/{path}’ endpoint does not exist in server replicas", status="failure"), 400
 
 
-@app.route('/', methods=['GET'])
-def index():
-    return '''
-    <h1>Welcome to the home page!</h1>
-    <p>
-        <a href="/home"><button>Home Endpoint</button></a>
-        <a href="/heartbeat"><button>Heartbeat Endpoint</button></a>
-    </p>
-    ''', 200
-
-
-@app.route('/home', methods=['GET'])
-def home():
-    # Use the get_server method to get the server for a request
-    servers = [chm.get_server(i) for i in range(1000)]
-    server_counts = {server: servers.count(server) for server in set(servers)}
-    return jsonify(server_counts=server_counts, status='successful'), 200
-
-
-@app.route('/heartbeat', methods=['GET'])
-def heartbeat():
-    # Sends an empty response with a valid response code
-    return '', 200
-
-
 if __name__ == '__main__':
-    app.run(host='0.0.0.0', port=5000)
+    app.run(host='0.0.0.0', port=5001)
