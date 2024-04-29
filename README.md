@@ -22,7 +22,7 @@
  source venv/bin/activate
 ```
 - For Windows
-- ```sh
+```sh
  venv\Scripts\activate
 ```
 
