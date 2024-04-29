@@ -17,9 +17,13 @@
 ```
 
 - Activate the virtual environment:
-
+- For Linux or macOS:
 ```sh
  source venv/bin/activate
+```
+- For Windows
+- ```sh
+ venv\Scripts\activate
 ```
 
 ## Usage
