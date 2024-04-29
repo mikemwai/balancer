@@ -39,7 +39,7 @@
 - Run the server Docker container:
 
 ```sh
- docker run --name=server --rm --detach -p 5000:5000 server 
+ docker run --name=server --rm -d -e SERVER_ID=3 -p 5000:5000 server 
 ```
 
 - Stop the Docker container:
