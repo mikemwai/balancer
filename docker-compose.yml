@@ -1,6 +1,48 @@
 version: '3'
 services:
-  balancer:
-    build: .
+  server1:
+    build: ./server
+    environment:
+      - SERVER_ID=1
     ports:
-      - "5000:5000"
+      - "5002:5000"
+
+  server2:
+    build: ./server
+    environment:
+      - SERVER_ID=2
+    ports:
+      - "5003:5000"
+
+  server3:
+    build: ./server
+    environment:
+      - SERVER_ID=3
+    ports:
+      - "5004:5000"
+
+  server4:
+    build: ./server
+    environment:
+      - SERVER_ID=4
+    ports:
+      - "5005:5000"
+
+  server5:
+    build: ./server
+    environment:
+      - SERVER_ID=5
+    ports:
+      - "5006:5000"
+
+  server6:
+    build: ./server
+    environment:
+      - SERVER_ID=6
+    ports:
+      - "5007:5000"
+
+  balancer:
+    build: ./load_balancer
+    ports:
+      - "5001:5001"
