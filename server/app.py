@@ -4,17 +4,6 @@ import os
 app = Flask(__name__)
 
 
-# @app.route('/', methods=['GET'])
-# def index():
-#     return '''
-#     <h1>Welcome to the home page!</h1>
-#     <p>
-#         <a href="/home"><button>Home Endpoint</button></a>
-#         <a href="/heartbeat"><button>Heartbeat Endpoint</button></a>
-#     </p>
-#     ''', 200
-
-
 @app.route('/home', methods=['GET'])
 def home():
     server_id = os.getenv('SERVER_ID', 'N/A')

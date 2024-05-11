@@ -17,21 +17,20 @@
 ```
 
 - Activate the virtual environment:
-
+- For Linux or macOS:
 ```sh
  source venv/bin/activate
 ```
-
-- Install the needed packages:
-
+- For Windows
 ```sh
- pip install -r requirements.txt 
+ venv\Scripts\activate
 ```
 
 ## Usage
 
-### Server
+### 1) Server
 - Build the server Docker image:
+- Navigate to the server directory and run the following terminal commands.
 
 ```sh
  docker build -t server .  
@@ -40,7 +39,7 @@
 - Run the server Docker container:
 
 ```sh
- docker run --name=server --rm --detach -p 5000:5000 server 
+ docker run --name=server --rm -d -e SERVER_ID=3 -p 5000:5000 server 
 ```
 
 - Stop the Docker container:
@@ -53,8 +52,9 @@
    - http://127.0.0.1:5000/home to navigate to the `/home` endpoint.
    - http://127.0.0.1:5000/heartbeat to navigate to the `/heartbeat` endpoint.
 
-### Load Balancer
+### 2) Load Balancer
 - Build the load balancer Docker image:
+- Open new terminal and navigate to load_balancer directory
 
 ```sh
  docker build -t load_balancer .  
@@ -63,7 +63,7 @@
 - Run the load balancer Docker container:
 
 ```sh
- docker run --name=server --rm --detach -p 5001:5001 load_balancer 
+ docker run --name=load_balancer --rm --detach -p 5001:5001 load_balancer 
 ```
 
 - Stop the load balancer Docker container:
