@@ -28,54 +28,20 @@
 
 ## Usage
 
-### 1) Server
-- Build the server Docker image:
-- Navigate to the server directory and run the following terminal commands.
+- Running the application for the first time:
 
 ```sh
- docker build -t server .  
+ docker-compose up --build
 ```
 
-- Run the server Docker container:
+- Running the application:
 
 ```sh
- docker run --name=server --rm -d -e SERVER_ID=3 -p 5000:5000 server 
+ docker-compose up
 ```
 
-- Stop the Docker container:
+- Stopping the application:
 
 ```sh
- docker stop server
+ docker-compose down
 ```
-
-- Open your browser and go to the server endpoints:
-   - http://127.0.0.1:5000/home to navigate to the `/home` endpoint.
-   - http://127.0.0.1:5000/heartbeat to navigate to the `/heartbeat` endpoint.
-
-### 2) Load Balancer
-- Build the load balancer Docker image:
-- Open new terminal and navigate to load_balancer directory
-
-```sh
- docker build -t load_balancer .  
-```
-
-- Run the load balancer Docker container:
-
-```sh
- docker run --name=load_balancer --rm --detach -p 5001:5001 load_balancer 
-```
-
-- Stop the load balancer Docker container:
-
-```sh
- docker stop load_balancer
-```
-
-- Open your browser and go to the load balancer endpoints:
-   - http://127.0.0.1:5001/rep to navigate to the `/rep` endpoint.
-   - http://127.0.0.1:5001/add to navigate to the `/add` endpoint.
-   - http://127.0.0.1:5001/rm to navigate to the `/rm` endpoint.
-   - http://127.0.0.1:5001/<path:path> to navigate to the `/<path:path>` endpoint.
-
-- Test the endpoints using Postman.

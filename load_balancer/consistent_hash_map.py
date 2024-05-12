@@ -6,6 +6,7 @@ class ConsistentHashMap:
         self.hash_map = {}
         self.sorted_keys = []
         self.num_slots = num_slots
+        self.num_virtual_servers = num_virtual_servers  # Store num_virtual_servers as an instance variable
 
         for i in range(num_servers):
             for j in range(num_virtual_servers):
@@ -32,6 +33,18 @@ class ConsistentHashMap:
         print(f'Request: {request}, Server: {server}')
 
         return server
+
+    def set_num_servers(self, num_servers):
+        self.hash_map = {}
+        self.sorted_keys = []
+
+        for i in range(num_servers):
+            for j in range(self.num_virtual_servers):
+                hash_value = self.virtual_server_hash(i, j)
+                self.hash_map[hash_value] = i
+                self.sorted_keys.append(hash_value)
+
+        self.sorted_keys.sort()
 
 
 # Initialize the consistent hash map with 3 servers, 512 slots, and 9 virtual servers per server

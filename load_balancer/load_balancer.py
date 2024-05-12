@@ -30,9 +30,18 @@ def add_replicas():
         if i < len(hostnames):
             server_replicas.append(hostnames[i])
         else:
-            # Generate a random hostname
-            server_replicas.append(''.join(random.choices(string.ascii_uppercase + string.digits, k=5)))
-    return jsonify(message={"N": len(server_replicas), "replicas": server_replicas}, status="successful"), 200
+            # Use the server ID to generate the server name
+            server_replicas.append('S' + str(i + 1))
+
+    # Update the ConsistentHashMap instance to reflect the new number of servers
+    chm.set_num_servers(len(server_replicas))
+
+    print(
+        f'Updated number of servers in ConsistentHashMap: {len(server_replicas)}')  # Print statement to confirm update
+
+    return jsonify(
+        message={"N": len(server_replicas), "replicas": server_replicas, "updated_servers": len(server_replicas)},
+        status="successful"), 200
 
 
 @app.route('/rm', methods=['DELETE'])
@@ -51,7 +60,16 @@ def remove_replicas():
         # Remove a random server replica
         server_replicas.pop(random.randint(0, len(server_replicas) - 1))
         n -= 1
-    return jsonify(message={"N": len(server_replicas), "replicas": server_replicas}, status="successful"), 200
+
+    # Update the ConsistentHashMap instance to reflect the new number of servers
+    chm.set_num_servers(len(server_replicas))
+
+    print(
+        f'Updated number of servers in ConsistentHashMap: {len(server_replicas)}')  # Print statement to confirm update
+
+    return jsonify(
+        message={"N": len(server_replicas), "replicas": server_replicas, "updated_servers": len(server_replicas)},
+        status="successful"), 200
 
 
 @app.route('/<path:path>', methods=['GET'])
