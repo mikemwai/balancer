@@ -82,5 +82,17 @@ def route_request(path):
         return jsonify(message=f"<Error> ’/{path}’ endpoint does not exist in server replicas", status="failure"), 400
 
 
+@app.route('/fail', methods=['POST'])
+def simulate_failure():
+    data = request.get_json()
+    hostname = data.get('hostname')
+    if hostname in server_replicas:
+        server_replicas.remove(hostname)
+        chm.set_num_servers(len(server_replicas))
+        return jsonify(message=f"Simulated failure of {hostname}.", status="successful"), 200
+    else:
+        return jsonify(message=f"<Error> {hostname} does not exist in server replicas", status="failure"), 400
+
+
 if __name__ == '__main__':
     app.run(host='0.0.0.0', port=5001)
