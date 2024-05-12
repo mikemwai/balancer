@@ -1,8 +1,8 @@
-# Usage
+# Server
 
-## Server
+## Usage
+
 - Build the server Docker image:
-- Navigate to the server directory and run the following terminal commands.
 
 ```sh
  docker build -t server .  
