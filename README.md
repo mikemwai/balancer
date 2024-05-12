@@ -60,6 +60,10 @@ in a bar chart. Explain your observations in the graph and your view on the perf
 
 ### Observations
 
+![Task 1-1](https://res.cloudinary.com/dkmblonw5/image/upload/f_auto,q_auto/v1/balancer/balancer-A-1-1)
+
+![Task 1-2](https://res.cloudinary.com/dkmblonw5/image/upload/f_auto,q_auto/v1/balancer/balancer-A-1-2)
+
 ## ii) A-2
 
 -  Next, increment N from 2 to 6 and launch 10000 requests on each such increment. Report the average load of the servers 
@@ -68,6 +72,10 @@ implementation.
 
 ### Observations
 
+![Task 2-1](https://res.cloudinary.com/dkmblonw5/image/upload/f_auto,q_auto/v1/balancer/balancer-A-2-1)
+
+![Task 2-2](https://res.cloudinary.com/dkmblonw5/image/upload/f_auto,q_auto/v1/balancer/balancer-A-2-2)
+
 ## iii) A-3
 
 -  Test all endpoints of the load balancer and show that in case of server failure, the load balancer spawns a new instance
@@ -75,8 +83,14 @@ quickly to handle the load.
 
 ### Observations
 
+![Task 3](https://res.cloudinary.com/dkmblonw5/image/upload/f_auto,q_auto/v1/balancer/balancer-A-3)
+
 ## iv) A-4
 
 -  Finally, modify the hash functions H(i), Φ(i, j) and report the observations from (A-1) and (A-2).
 
 ### Observations
+
+![Task 4-1](https://res.cloudinary.com/dkmblonw5/image/upload/f_auto,q_auto/v1/balancer/balancerA-4-A-1)
+
+![Task 4-2](https://res.cloudinary.com/dkmblonw5/image/upload/f_auto,q_auto/v1/balancer/balancer-A-4-A-2)
