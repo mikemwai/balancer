@@ -45,3 +45,8 @@
 ```sh
  docker-compose down
 ```
+
+- For more details on how to run:
+
+  - [The Server](./server/README.md)
+  - [The Load Balancer](./load_balancer/README.md)
