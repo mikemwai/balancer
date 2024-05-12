@@ -50,3 +50,19 @@
 
   - [The Server](./server/README.md)
   - [The Load Balancer](./load_balancer/README.md)
+
+## Task 4 A-1
+
+### Observations
+
+## Task 4 A-2
+
+### Observations
+
+## Task 4 A-3
+
+### Observations
+
+## Task 4 A-4
+
+### Observations
