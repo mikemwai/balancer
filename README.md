@@ -51,18 +51,32 @@
   - [The Server](./server/README.md)
   - [The Load Balancer](./load_balancer/README.md)
 
-## Task 4 A-1
+## Analysis
+
+## i) A-1
+
+-  Launch 10000 async requests on N = 3 server containers and report the request count handled by each server instance
+in a bar chart. Explain your observations in the graph and your view on the performance.
 
 ### Observations
 
-## Task 4 A-2
+## ii) A-2
+
+-  Next, increment N from 2 to 6 and launch 10000 requests on each such increment. Report the average load of the servers 
+at each run in a line chart. Explain your observations in the graph and your view on the scalability of the load balancer
+implementation.
 
 ### Observations
 
-## Task 4 A-3
+## iii) A-3
+
+-  Test all endpoints of the load balancer and show that in case of server failure, the load balancer spawns a new instance
+quickly to handle the load.
 
 ### Observations
 
-## Task 4 A-4
+## iv) A-4
+
+-  Finally, modify the hash functions H(i), Φ(i, j) and report the observations from (A-1) and (A-2).
 
 ### Observations
