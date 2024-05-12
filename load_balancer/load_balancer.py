@@ -31,7 +31,7 @@ def add_replicas():
             server_replicas.append(hostnames[i])
         else:
             # Use the server ID to generate the server name
-            server_replicas.append('S' + str(i + 1))
+            server_replicas.append('Server ' + str(i + 1))
 
     # Update the ConsistentHashMap instance to reflect the new number of servers
     chm.set_num_servers(len(server_replicas))
