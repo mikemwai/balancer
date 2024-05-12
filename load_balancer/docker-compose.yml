@@ -1,0 +1,22 @@
+version: '3'
+services:
+  server4:
+    build: ../server
+    environment:
+      - SERVER_ID=4
+    ports:
+      - "5005:5000"
+
+  server5:
+    build: ../server
+    environment:
+      - SERVER_ID=5
+    ports:
+      - "5006:5000"
+
+  server6:
+    build: ../server
+    environment:
+      - SERVER_ID=6
+    ports:
+      - "5007:5000"

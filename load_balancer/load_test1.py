@@ -22,7 +22,7 @@ async def main():
     async with aiohttp.ClientSession() as session:
         for i in range(num_requests):
             server_num = i % num_servers + 1  # Distribute requests across servers
-            url = f'http://localhost:500{server_num}/home'
+            url = f'http://localhost:500{server_num + 1}/home'
             time_taken = await make_request(session, url)
             times.append(time_taken)
 

@@ -1,23 +1,24 @@
 # Usage
 
+- Especially when performing `Task 4`:
+
 ## Load Balancer
 - Build the load balancer Docker image:
-- Open new terminal and navigate to load_balancer directory
 
 ```sh
  docker build -t load_balancer .  
 ```
 
-- Run the load balancer Docker container:
+- Run the load balancer Docker containers:
 
 ```sh
- docker run --name=load_balancer --rm --detach -p 5001:5001 load_balancer 
+ docker-compose -p balancer up -d
 ```
 
-- Stop the load balancer Docker container:
+- Stop the load balancer Docker containers:
 
 ```sh
- docker stop load_balancer
+ docker-compose -p balancer down
 ```
 
 - Open your browser and go to the load balancer endpoints:
