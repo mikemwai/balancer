@@ -1,5 +1,6 @@
 import bisect
 
+
 class ConsistentHashMap:
     def __init__(self, num_servers, num_slots, num_virtual_servers):
         self.hash_map = {}
@@ -43,6 +44,7 @@ class ConsistentHashMap:
                 self.sorted_keys.append(hash_value)
 
         self.sorted_keys.sort()
+
 
 chm = ConsistentHashMap(3, 512, 9)
 server = chm.get_server(123)
