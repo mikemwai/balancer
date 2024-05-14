@@ -50,6 +50,16 @@
 
   - [The Server](./server/README.md)
   - [The Load Balancer](./load_balancer/README.md)
+ 
+- Docker containers running:
+
+  - Three server containers and the load balancer:
+ 
+    ![three](https://res.cloudinary.com/dkmblonw5/image/upload/f_auto,q_auto/v1/balancer/docker-container3)
+    
+  - Six server containers and the load balancer:
+  
+    ![six](https://res.cloudinary.com/dkmblonw5/image/upload/f_auto,q_auto/v1/balancer/docker-containers)
 
 ## Analysis
 
@@ -60,7 +70,9 @@ in a bar chart. Explain your observations in the graph and your view on the perf
 
 ### Observations
 
+![graphA1.1](https://res.cloudinary.com/dkmblonw5/image/upload/f_auto,q_auto/v1/balancer/balancerA-1-1)
 
+![consoleA1.2](https://res.cloudinary.com/dkmblonw5/image/upload/f_auto,q_auto/v1/balancer/balancerA-1-2)
 
 ## ii) A-2
 
@@ -70,7 +82,9 @@ implementation.
 
 ### Observations
 
+![graphA2.1](https://res.cloudinary.com/dkmblonw5/image/upload/f_auto,q_auto/v1/balancer/balancerA-2-1)
 
+![consoleA2.2](https://res.cloudinary.com/dkmblonw5/image/upload/f_auto,q_auto/v1/balancer/balancerA-2-2)
 
 ## iii) A-3
 
@@ -87,10 +101,10 @@ quickly to handle the load.
 
 ### Observations
 
-![Task 1-1](https://res.cloudinary.com/dkmblonw5/image/upload/f_auto,q_auto/v1/balancer/balancer-A-1-1)
+![Task 1-1](https://res.cloudinary.com/dkmblonw5/image/upload/f_auto,q_auto/v1/balancer/balancer-A-4-1)
 
-![Task 1-2](https://res.cloudinary.com/dkmblonw5/image/upload/f_auto,q_auto/v1/balancer/balancer-A-1-2)
+![Task 1-2](https://res.cloudinary.com/dkmblonw5/image/upload/f_auto,q_auto/v1/balancer/balancer-A-4-2)
 
-![Task 2-1](https://res.cloudinary.com/dkmblonw5/image/upload/f_auto,q_auto/v1/balancer/balancer-A-2-1)
+![Task 2-1](https://res.cloudinary.com/dkmblonw5/image/upload/f_auto,q_auto/v1/balancer/balancer-A-4-2-1)
 
-![Task 2-2](https://res.cloudinary.com/dkmblonw5/image/upload/f_auto,q_auto/v1/balancer/balancer-A-2-2)
+![Task 2-2](https://res.cloudinary.com/dkmblonw5/image/upload/f_auto,q_auto/v1/balancer/balancer-A-4-2-2)
