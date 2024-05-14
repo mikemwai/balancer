@@ -1,5 +1,3 @@
-# balancer
-
 ## Overview
 ![Overview](https://res.cloudinary.com/dkmblonw5/image/upload/f_auto,q_auto/v1/balancer/overview)
 
