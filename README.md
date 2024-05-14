@@ -92,3 +92,21 @@ i) A-1:
 ii) A-2:
 
 - Based on the observations, the average load time per request for different numbers of server containers also decreased compared to the initial test. This suggests that the modifications to the hash functions improved the distribution of requests across the servers, resulting in a lower average load time per request.
+
+## Contributions
+
+- If you'd like to contribute to this project:
+
+    - Please fork the repository.
+    - Create a new branch for your changes.
+    - Submit a [pull request](https://github.com/mikemwai/balancer/pulls).
+
+Contributions, bug reports, and feature requests are welcome!
+
+## Issues
+
+- If you have any issues with the project, feel free to open up an [issue](https://github.com/mikemwai/balancer/issues).
+
+## License
+
+- This project is licensed under the [MIT License](./LICENSE)
