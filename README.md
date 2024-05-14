@@ -1,12 +1,14 @@
-# Implementing a Customizable Load Balancer
+# balancer
 
 ## Overview
 ![Overview](https://res.cloudinary.com/dkmblonw5/image/upload/f_auto,q_auto/v1/balancer/overview)
 
+- This is a project with the aim of implementing a customizable load balancer that routes the requests coming from several clients asynchronously among several server so that the load is nearly evenly distributed among them.
+
 ## Prerequisites
 
 - [Python 3.8](https://www.python.org/downloads/release/python-380/) : Programming language.
-- [Docker Desktop](https://www.docker.com/products/docker-desktop) : Running the application in a container.
+- [Docker Desktop](https://www.docker.com/products/docker-desktop) : Running the application in containers.
 - [Postman](https://www.postman.com/downloads/) : Testing the HTTP API endpoints.
 
 ## Installation
@@ -45,13 +47,8 @@
 ```sh
  docker-compose down
 ```
-
-- For more details on how to run:
-
-  - [The Server](./server/README.md)
-  - [The Load Balancer](./load_balancer/README.md)
  
-- Docker containers running:
+- Docker compose project running:
 
   - Three server containers and the load balancer:
  
@@ -73,6 +70,11 @@ in a bar chart. Explain your observations in the graph and your view on the perf
 ![graphA1.1](https://res.cloudinary.com/dkmblonw5/image/upload/f_auto,q_auto/v1/balancer/balancerA-1-1)
 
 ![consoleA1.2](https://res.cloudinary.com/dkmblonw5/image/upload/f_auto,q_auto/v1/balancer/balancerA-1-2)
+
+- For more details on how to run:
+
+  - [The Server](./server/README.md)
+  - [The Load Balancer](./load_balancer/README.md)
 
 ## ii) A-2
 
@@ -101,9 +103,13 @@ quickly to handle the load.
 
 ### Observations
 
+i) A-1:
+
 ![Task 1-1](https://res.cloudinary.com/dkmblonw5/image/upload/f_auto,q_auto/v1/balancer/balancer-A-4-1)
 
 ![Task 1-2](https://res.cloudinary.com/dkmblonw5/image/upload/f_auto,q_auto/v1/balancer/balancer-A-4-2)
+
+ii) A-2:
 
 ![Task 2-1](https://res.cloudinary.com/dkmblonw5/image/upload/f_auto,q_auto/v1/balancer/balancer-A-4-2-1)
 
