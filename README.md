@@ -32,6 +32,10 @@ in a bar chart. Explain your observations in the graph and your view on the perf
 
 ![consoleA1.2](https://res.cloudinary.com/dkmblonw5/image/upload/f_auto,q_auto/v1/balancer/balancerA-1-2)
 
+## Explanations
+
+- The load balancer handled 10,000 asynchronous requests in approximately 69.13 seconds. This indicates that the load balancer is capable of handling a high volume of requests in a relatively short amount of time. The average time taken per request is approximately 0.006913 seconds/request, indicating that the load balancer is able to handle each request quickly.
+
 ## ii) A-2
 
 -  Next, increment N from 2 to 6 and launch 10000 requests on each such increment. Report the average load of the servers 
@@ -44,6 +48,10 @@ implementation.
 
 ![consoleA2.2](https://res.cloudinary.com/dkmblonw5/image/upload/f_auto,q_auto/v1/balancer/balancerA-2-2)
 
+## Explanations
+
+- Based on the observations above, the average load time per request initially increases as the number of server containers increases from 2 to 4, then decreases as the number of server containers increases from 4 to 6. This could be due to the overhead of managing more server containers initially outweighing the benefits of having more servers to distribute the load. As the number of server containers continues to increase, the benefits of having more servers to distribute the load start to outweigh the overhead, resulting in a decrease in the average load time per request. 
+
 ## iii) A-3
 
 -  Test all endpoints of the load balancer and show that in case of server failure, the load balancer spawns a new instance
@@ -52,6 +60,10 @@ quickly to handle the load.
 ### Observations
 
 ![Task 3](https://res.cloudinary.com/dkmblonw5/image/upload/f_auto,q_auto/v1/balancer/balancer-A-3)
+
+## Explanations
+
+- Based on the observations above, the load balancer is functioning as expected with all endpoints up and running. In case of a server failure, it quickly spawns a new instance to handle the load, demonstrating its resilience and reliability.
 
 ## iv) A-4
 
@@ -70,3 +82,13 @@ ii) A-2:
 ![Task 2-1](https://res.cloudinary.com/dkmblonw5/image/upload/f_auto,q_auto/v1/balancer/balancer-A-4-2-1)
 
 ![Task 2-2](https://res.cloudinary.com/dkmblonw5/image/upload/f_auto,q_auto/v1/balancer/balancer-A-4-2-2)
+
+## Explanations
+
+i) A-1:
+
+- Based on the observations, the total time taken to handle 10,000 requests decreased to 48.1678 seconds which is lower than the time taken in the initial test. This indicates that the modifications to the hash functions improved the efficiency of the load balancer in handling a high volume of requests.
+
+ii) A-2:
+
+- Based on the observations, the average load time per request for different numbers of server containers also decreased compared to the initial test. This suggests that the modifications to the hash functions improved the distribution of requests across the servers, resulting in a lower average load time per request.
