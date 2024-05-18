@@ -63,7 +63,7 @@ quickly to handle the load.
 
 ### <ins>Explanations</ins>
 
-- Based on the observations above, the load balancer is functioning as expected with all endpoints up and running. In case of a server failure, it quickly spawns a new instance to handle the load, demonstrating its resilience and reliability.
+- Based on the observations above, the load balancer is functioning as expected with all endpoints up and running. In case of a server failure, it quickly spawns a new instance through the new endpoint `/fail` to handle the load, demonstrating its resilience and reliability.
 
 ## iv) A-4
 
