@@ -1,5 +1,5 @@
 import unittest
-from load_balancer import handle_request, add_server, remove_server
+from load_balancer import add_server, remove_server, handle_request
 
 class TestLoadBalancer(unittest.TestCase):
 
@@ -20,8 +20,9 @@ class TestLoadBalancer(unittest.TestCase):
         self.assertNotIn("Server1", self.servers, "Server1 should be removed from servers")
 
     def test_handle_request(self):
-        response = handle_request(self.servers, "/home")
+        response, status = handle_request(self.servers, "/home")
         self.assertTrue("Hello from" in response, "Request should be handled by one of the servers")
+        self.assertEqual(status, 200, "Status code should be 200")
 
 if __name__ == '__main__':
     unittest.main()
