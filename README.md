@@ -96,7 +96,7 @@ Based on the observations, the average load time per request for different numbe
 ## Logging and Asynchronous Request Handling
 
 The project includes a centralized logging configuration and modularized request handling functions. The `logging_config.py` file sets up a comprehensive logging system that logs events to both the console and a file, providing better traceability and debugging capabilities. The `async_requests.py` script uses `request_helper.py` for making asynchronous HTTP requests. 
- These changes ensure robust error handling and detailed logging of system operations, aligning with the project's objectives of creating a scalable, maintainable, and reliable load balancer system. These improvements aid in monitoring the system's behavior and diagnosing issues more effectively, which is crucial for managing distributed systems.
+
 ## Contributions
 
 - If you'd like to contribute to this project:
