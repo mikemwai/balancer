@@ -22,7 +22,7 @@ def simulate_server_failure(endpoint):
             response = requests.delete(url, json=data)
         elif endpoint == "/fail":
             # Simulate a server failure
-            data = {"hostname": "balancer-server1-1"}  # Replace with the hostname of the server you want to fail
+            data = {"hostname": "balancer-server1-1"}
             response = requests.post(url, json=data)
         else:
             response = requests.get(url)
@@ -30,9 +30,9 @@ def simulate_server_failure(endpoint):
         if response.status_code == 200:
             print(f"{url} is up and running.")
         else:
-            print(f"{url} is down. Spawning a new instance...")
+            print(f"{url} is down. Spawning a new server instance...")
             time.sleep(5)  # Simulate the time it takes to spawn a new instance
-            print(f"New instance of {url} has been spawned.")
+            print(f"New server instance of {url} has been spawned.")
     except requests.exceptions.RequestException as e:
         print(f"Error: {e}")
 
