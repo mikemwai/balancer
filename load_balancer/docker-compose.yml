@@ -20,3 +20,8 @@ services:
       - SERVER_ID=6
     ports:
       - "5007:5000"
+
+  load_balancer:
+    build: .
+    ports:
+      - "5001:5000"
