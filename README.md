@@ -13,6 +13,22 @@ The load balancer is designed using a consistent hashing mechanism. This design 
     - The servers are capable of handling the load distributed to them by the load balancer.
     - The number of servers can change dynamically, and the load balancer can handle these changes.
     - The hash function used for consistent hashing provides a good distribution of requests across the servers.
+    - 
+##  Installation
+1. Clone the repository on your local machine:
+   ```sh
+   git clone https://github.com/mikemwai/balancer.git
+2. Navigate to the project directory and create a virtual environment on your local machine through the command line:
+    ```sh
+    py -m venv myenv
+3. Activate your virtual environment:
+   - On Windows
+     ```sh
+     myenv\Scripts\activate
+   - On Mac
+      ```sh
+      source myenv/bin/activate
+4. Navigate to the [server readme](server/README.md) to install the required packages for the server and [load balancer readme](load_balancer/README.md) to install the required packages for the load balancer.
 
 ## Testing
 The load balancer was tested using a series of tests that simulate a variety of scenarios, including a large number of requests, changes in the number of servers, and server failures. The tests were designed to measure the performance of the load balancer and ensure that it can handle these scenarios effectively.
