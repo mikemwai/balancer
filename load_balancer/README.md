@@ -1,4 +1,13 @@
 # Load Balancer
+This is a simple load balancer that listens on port 5001 and has four endpoints:
+- `/rep`: Returns a welcome message.
+- `/add`: Adds a new server to the load balancer.
+- `/rm`: Removes a server from the load balancer.
+- `/<path:path>`: Routes the request to one of the servers. 
+
+## Pre-requisites
+
+- [Docker](https://docs.docker.com/get-docker/)
 
 ## Usage
 

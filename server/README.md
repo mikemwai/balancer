@@ -1,4 +1,11 @@
 # Server
+This is a simple server that listens on port 5000 and has two endpoints:
+- `/home`: Returns a welcome message.
+- `/heartbeat`: Returns a heartbeat message.
+
+## Pre-requisites
+
+- [Docker](https://docs.docker.com/get-docker/)
 
 ## Usage
 
