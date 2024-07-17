@@ -13,7 +13,7 @@ The load balancer is designed using a consistent hashing mechanism. This design 
     - The servers are capable of handling the load distributed to them by the load balancer.
     - The number of servers can change dynamically, and the load balancer can handle these changes.
     - The hash function used for consistent hashing provides a good distribution of requests across the servers.
-    - 
+  
 ##  Installation
 1. Clone the repository on your local machine:
 
