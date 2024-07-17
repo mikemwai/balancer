@@ -16,19 +16,38 @@ The load balancer is designed using a consistent hashing mechanism. This design 
     - 
 ##  Installation
 1. Clone the repository on your local machine:
+
    ```sh
    git clone https://github.com/mikemwai/balancer.git
+    ```
+   
 2. Navigate to the project directory and create a virtual environment on your local machine through the command line:
-    ```sh
+    
+   ```sh
     py -m venv myenv
+    ```
+   
 3. Activate your virtual environment:
+
    - On Windows
+   
      ```sh
      myenv\Scripts\activate
+     ```
+     
    - On Mac
+   
       ```sh
       source myenv/bin/activate
-4. Navigate to the [server readme](server/README.md) to install the required packages for the server and [load balancer readme](load_balancer/README.md) to install the required packages for the load balancer.
+     ```
+     
+4. Install the required packages:
+
+   ```sh
+   pip install -r requirements.txt
+   ```
+   
+5. Navigate to the [server readme](server/README.md) to run the server and the [load balancer readme](load_balancer/README.md) to run the load balancer.
 
 ## Testing
 The load balancer was tested using a series of tests that simulate a variety of scenarios, including a large number of requests, changes in the number of servers, and server failures. The tests were designed to measure the performance of the load balancer and ensure that it can handle these scenarios effectively.
