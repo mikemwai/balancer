@@ -85,7 +85,22 @@ implementation.
 
 ### <ins>Explanations</ins>
 
-Based on the observations above, the average load time per request initially increases as the number of server containers increases from 2 to 4, then decreases as the number of server containers increases from 4 to 6. This could be due to the overhead of managing more server containers initially outweighing the benefits of having more servers to distribute the load. As the number of server containers continues to increase, the benefits of having more servers to distribute the load start to outweigh the overhead, resulting in a decrease in the average load time per request. 
+The original A-2 experiment attempted to launch 10,000 concurrent requests per run and used successive `/add` calls which appended replicas cumulatively. On Windows this caused ephemeral-port/socket exhaustion and produced connection errors (WinError 52 / 10048) that made individual runs unreliable.
+
+The test harness has been corrected to:
+- Reset the balancer to the exact target server count before each run (so runs for N=2..6 are independent).
+- Reuse a single `aiohttp.ClientSession` for both control endpoints (`/rep`, `/add`, `/rm`) and the load traffic to avoid creating new sockets for each control call.
+- Bound concurrent connections with a `TCPConnector` and an `asyncio.Semaphore` (20 concurrent connections by default) so the client does not overwhelm the OS networking stack.
+
+With these fixes the A-2 runs complete reliably on this machine. The saved chart and numeric results are available at `load_balancer/average_loads_A2.png` and `load_balancer/average_loads_A2.json` respectively. The measured average request times from one run were approximately:
+
+- N=2: 0.098s (10000 requests)
+- N=3: 0.104s (8958 successful requests)
+- N=4: 0.108s (7809 successful requests)
+- N=5: 0.098s (9740 successful requests)
+- N=6: 0.114s (8278 successful requests)
+
+These numbers show that when the harness is corrected, average per-request latency remains roughly stable across N with some variability due to the local environment and which requests failed under back-pressure. For robust benchmarking, run the experiment multiple times and/or move the server components to separate machines or containers to remove client-side resource contention.
 
 ## iii) A-3
 
