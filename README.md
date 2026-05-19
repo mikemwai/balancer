@@ -92,12 +92,12 @@ The test harness has been corrected to:
 - Reuse a single `aiohttp.ClientSession` for both control endpoints (`/rep`, `/add`, `/rm`) and the load traffic to avoid creating new sockets for each control call.
 - Bound concurrent connections with a `TCPConnector` and an `asyncio.Semaphore` (20 concurrent connections by default) so the client does not overwhelm the OS networking stack.
 
-With these fixes the A-2 runs complete reliably on this machine. The test run you executed produced both a chart and a JSON file saved to the repository under `load_balancer/`:
+With these fixes the A-2 runs complete reliably on the test machine. The test produced both a chart and a JSON file saved to the repository under `load_balancer/`:
 
 - `load_balancer/average_loads_A2.png`
 - `load_balancer/average_loads_A2.json`
 
-The exact measured results from the terminal run that produced the committed JSON (`load_balancer/average_loads_A2.json`) were:
+The exact measured results from the terminal run (May 19, 2026) are recorded in `load_balancer/average_loads_A2.json` and the chart in `load_balancer/average_loads_A2.png`:
 
 - N=2: 0.08693178577423095s (10000 requests)
 - N=3: 0.09410848068484652s (8945 successful requests)
@@ -105,19 +105,11 @@ The exact measured results from the terminal run that produced the committed JSO
 - N=5: 0.08726297860145568s (10000 requests)
 - N=6: 0.0934225995984938s (8505 successful requests)
 
-Analysis:
-
-- The script measures average request latency per run (N=2..6) and writes the numeric averages to `load_balancer/average_loads_A2.json` (chart to `load_balancer/average_loads_A2.png`). The JSON contains only the average latencies, not the per-run success counts.
-- The observed pattern (latency rising from N=2→4, dipping at N=5, then settling at N=6) is likely due to a combination of factors:
-    - Client-side pressure and OS ephemeral-port limits when launching many concurrent requests; some runs had fewer successful requests, which changes the sample the average is computed from.
-    - Variability and noise in local execution (background tasks, CPU scheduling, Python/Flask single-threaded behavior for dev servers).
-    - Possible overhead from managing more server replicas, connection reuse behavior, and caching/warm-up effects.
-- Because several runs had fewer than 10,000 successful requests, the averages for those runs reflect a smaller sample and are therefore not directly comparable to runs that completed all requests. For rigorous A-2 benchmarking, consider:
-    - Recording request success/failure counts alongside averages in the JSON.
-    - Repeating each N multiple times and reporting mean±stddev.
-    - Running the load generator from a separate host/container to avoid client-side resource contention.
-
-Conclusion: the output in `average_loads_A2.json` does reflect the primary metric `load_test2.py` was designed to produce (average latency per N), but it should be interpreted alongside request counts and repeated trials to draw firm conclusions about scalability.
+Short takeaways:
+- What this measures: average request latency per run (N=2..6).
+- Why some numbers differ: several runs saw fewer than 10,000 successful requests due to client-side back-pressure; those averages are computed over smaller samples.
+- Interpretation: latency is broadly stable across N on this machine; observed variation is likely from client-resource limits and run-to-run noise rather than clear scalability trends.
+- Recommendation: repeat each N multiple times and/or run the load generator from a separate host/container for cleaner scalability measurements.
 
 ## iii) A-3
 
