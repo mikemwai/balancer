@@ -97,15 +97,27 @@ With these fixes the A-2 runs complete reliably on this machine. The test run yo
 - `load_balancer/average_loads_A2.png`
 - `load_balancer/average_loads_A2.json`
 
-The exact measured results from the terminal run (May 19, 2026) were:
+The exact measured results from the terminal run that produced the committed JSON (`load_balancer/average_loads_A2.json`) were:
 
-- N=2: 0.09761874160766601s (10000 requests)
-- N=3: 0.10358305149350909s (8958 successful requests)
-- N=4: 0.10761181943959136s (7809 successful requests)
-- N=5: 0.09769843121573665s (9740 successful requests)
-- N=6: 0.11413871340487826s (8278 successful requests)
+- N=2: 0.08693178577423095s (10000 requests)
+- N=3: 0.09410848068484652s (8945 successful requests)
+- N=4: 0.1059656991657845s (7261 successful requests)
+- N=5: 0.08726297860145568s (10000 requests)
+- N=6: 0.0934225995984938s (8505 successful requests)
 
-These results indicate average per-request latency that is broadly stable across the tested N values on this machine; some runs saw fewer successful requests due to back-pressure where individual requests were dropped under heavy client-side load. For robust benchmarking, run the experiment multiple times and/or move server components to separate hosts or containers to remove client-side resource contention. The saved chart and JSON provide a reproducible artifact you can include in reports or reuse for plotting.
+Analysis:
+
+- The script measures average request latency per run (N=2..6) and writes the numeric averages to `load_balancer/average_loads_A2.json` (chart to `load_balancer/average_loads_A2.png`). The JSON contains only the average latencies, not the per-run success counts.
+- The observed pattern (latency rising from N=2→4, dipping at N=5, then settling at N=6) is likely due to a combination of factors:
+    - Client-side pressure and OS ephemeral-port limits when launching many concurrent requests; some runs had fewer successful requests, which changes the sample the average is computed from.
+    - Variability and noise in local execution (background tasks, CPU scheduling, Python/Flask single-threaded behavior for dev servers).
+    - Possible overhead from managing more server replicas, connection reuse behavior, and caching/warm-up effects.
+- Because several runs had fewer than 10,000 successful requests, the averages for those runs reflect a smaller sample and are therefore not directly comparable to runs that completed all requests. For rigorous A-2 benchmarking, consider:
+    - Recording request success/failure counts alongside averages in the JSON.
+    - Repeating each N multiple times and reporting mean±stddev.
+    - Running the load generator from a separate host/container to avoid client-side resource contention.
+
+Conclusion: the output in `average_loads_A2.json` does reflect the primary metric `load_test2.py` was designed to produce (average latency per N), but it should be interpreted alongside request counts and repeated trials to draw firm conclusions about scalability.
 
 ## iii) A-3
 
