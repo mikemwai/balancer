@@ -92,15 +92,20 @@ The test harness has been corrected to:
 - Reuse a single `aiohttp.ClientSession` for both control endpoints (`/rep`, `/add`, `/rm`) and the load traffic to avoid creating new sockets for each control call.
 - Bound concurrent connections with a `TCPConnector` and an `asyncio.Semaphore` (20 concurrent connections by default) so the client does not overwhelm the OS networking stack.
 
-With these fixes the A-2 runs complete reliably on this machine. The saved chart and numeric results are available at `load_balancer/average_loads_A2.png` and `load_balancer/average_loads_A2.json` respectively. The measured average request times from one run were approximately:
+With these fixes the A-2 runs complete reliably on this machine. The test run you executed produced both a chart and a JSON file saved to the repository under `load_balancer/`:
 
-- N=2: 0.098s (10000 requests)
-- N=3: 0.104s (8958 successful requests)
-- N=4: 0.108s (7809 successful requests)
-- N=5: 0.098s (9740 successful requests)
-- N=6: 0.114s (8278 successful requests)
+- `load_balancer/average_loads_A2.png`
+- `load_balancer/average_loads_A2.json`
 
-These numbers show that when the harness is corrected, average per-request latency remains roughly stable across N with some variability due to the local environment and which requests failed under back-pressure. For robust benchmarking, run the experiment multiple times and/or move the server components to separate machines or containers to remove client-side resource contention.
+The exact measured results from the terminal run (May 19, 2026) were:
+
+- N=2: 0.09761874160766601s (10000 requests)
+- N=3: 0.10358305149350909s (8958 successful requests)
+- N=4: 0.10761181943959136s (7809 successful requests)
+- N=5: 0.09769843121573665s (9740 successful requests)
+- N=6: 0.11413871340487826s (8278 successful requests)
+
+These results indicate average per-request latency that is broadly stable across the tested N values on this machine; some runs saw fewer successful requests due to back-pressure where individual requests were dropped under heavy client-side load. For robust benchmarking, run the experiment multiple times and/or move server components to separate hosts or containers to remove client-side resource contention. The saved chart and JSON provide a reproducible artifact you can include in reports or reuse for plotting.
 
 ## iii) A-3
 
